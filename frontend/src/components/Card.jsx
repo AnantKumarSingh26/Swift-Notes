@@ -9,8 +9,8 @@ const Card = () => {
     return (
         <div className="Card">
             <div className="date-time">
-                <p>Date : 15 Aug 2026 |</p>
-                <p>11:30 AM</p>
+                <p>Date : 15 Aug 2026 | 11:30 AM</p>
+                
             </div>
             <div className="heading">
                 <h2>Project Q3 Marketing Strategy</h2>
@@ -25,7 +25,7 @@ const Card = () => {
                     <li>Finalize influencer contracts.....</li>
                 </ol>
             </div>
-            <div className="tags">Tags: <p>#marketing, #strategy</p></div>
+            <div className="tags"><p>Tags:  #marketing, #strategy</p></div>
             <hr />
             <div className="bottom">
                 <div className="bottom-left">
@@ -35,8 +35,8 @@ const Card = () => {
                     <button><RiDeleteBin6Line /></button>
                 </div>
                 <div className="bottom-right">
-                    <p>Created at : 15 Aug 2026 |</p>
-                    <p>11:30 AM</p>
+                    <p>Created at : 15 Aug 2026 | 11:30 AM</p>
+                    
                 </div>
             </div>
         </div>
