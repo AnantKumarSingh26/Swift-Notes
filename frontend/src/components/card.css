@@ -1,0 +1,12 @@
+.Card{
+    width: 24rem;
+    height: 30rem;
+    padding: 20px;
+    border-radius: 17px;
+    background-color: rgb(84, 83, 83);
+}
+.date-time{
+    display: flex;
+    margin-bottom: 5px;
+    font-size: large;
+}
