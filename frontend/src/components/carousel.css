@@ -1,0 +1,144 @@
+/* carousel.css */
+
+.carousel-container-outer {
+    position: relative; /* Base for arrows and pagination dots to float */
+    width: 100%;
+    max-width: 1200px; /* Sufficient space for centered and angled cards */
+    margin: 5rem auto; /* Vertical centering */
+    box-sizing: border-box;
+}
+
+/* Base style for each individual card within the carousel */
+.carousel-card-container {
+    /* Define base size here, not in Card.css, so scale works better */
+    width: 30rem; /* New base width to match the wide SwiftNotes big card */
+    height: 34rem; /* Base height */
+    position: absolute;
+    top: 50%;
+    transform-style: preserve-3d; /* CRITICAL for 3D perspective manipulation */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation when state changes */
+    will-change: transform, opacity; /* Better performance */
+}
+
+/* Container defining the perspective depth */
+.carousel-perspective-wrapper {
+    perspective: 1000px; /* Adjust this for more/less aggressive 3D effect */
+    width: 100%;
+    height: 36rem; /* Vertical space to fit cards and scaled active card */
+    position: relative;
+    display: flex;
+    justify-content: center; /* Horizontally center everything */
+}
+
+.carousel-inner-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center */
+}
+
+/* --- Specific Position-based classes --- */
+
+/* 1. Middle Card (Active, Big) */
+.carousel-card-container.card-active {
+    transform: translate3d(0, -50%, 0) scale(1.1); /* Slightly scale up, keep centered vertically */
+    z-index: 10; /* Put on top of everything */
+    opacity: 1; /* Fully visible */
+}
+
+/* 2. Side Left Card (Smaller, dimmed, perspective angled) */
+.carousel-card-container.card-side-left {
+    /* Scale down, rotate perspective, shift left */
+    transform: translate3d(-110%, -50%, -50px) scale(0.9) rotateY(18deg);
+    z-index: 5;
+    opacity: 0.8; /* Dim slightly */
+}
+
+/* 3. Side Right Card (Smaller, dimmed, perspective angled) */
+.carousel-card-container.card-side-right {
+    /* Scale down, rotate perspective, shift right */
+    transform: translate3d(110%, -50%, -50px) scale(0.9) rotateY(-18deg);
+    z-index: 5;
+    opacity: 0.8; /* Dim slightly */
+}
+
+/* 4. Non-adjacent cards - fully hidden and shifted far back */
+.carousel-card-container.card-hidden {
+    transform: translate3d(0, -50%, -100px) scale(0.5); /* Way back */
+    opacity: 0;
+    pointer-events: none; /* Can't interact */
+    z-index: 1;
+}
+
+/* Dimming overlay applied to non-active cards */
+.carousel-card-container:not(.card-active) .card-dim-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 30, 0.4); /* Like image_1.png */
+    border-radius: 17px; /* Match Card radius */
+    z-index: 1; /* Place overlay on top of Card content */
+    transition: opacity 0.3s ease;
+}
+
+/* Keep the dimming overlay hidden on the active card */
+.carousel-card-container.card-active .card-dim-overlay {
+    opacity: 0;
+}
+
+/* --- Arrows Styling --- */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+    font-size: 2rem;
+    color: white;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-btn:hover {
+    opacity: 1;
+}
+
+.prev-btn {
+    left: -4rem; /* Position them out of the track space */
+}
+
+.next-btn {
+    right: -4rem; /* Position them out of the track space */
+}
+
+/* Pagination Dots */
+.carousel-pagination {
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 20;
+}
+
+.carousel-pagination .dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(110, 110, 110);
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-pagination .dot.dot-active {
+    background-color: rgb(210, 210, 215);
+    opacity: 1;
+}

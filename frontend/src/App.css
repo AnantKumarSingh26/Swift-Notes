@@ -1,5 +1,16 @@
-.main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  /* flex-wrap: wrap; */
+  min-height: 100vh;
+  overflow-x: auto;
 }

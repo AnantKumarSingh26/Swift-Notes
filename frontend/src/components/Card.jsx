@@ -5,27 +5,30 @@ import { FaRegStar } from "react-icons/fa6";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import './card.css'
 
-const Card = () => {
+const Card = ({ cardData }) => {
     return (
         <div className="Card">
+
             <div className="date-time">
-                <p>Date : 15 Aug 2026 | 11:30 AM</p>
-                
+                <p>{cardData.dateTime}</p>
+
             </div>
             <div className="heading">
-                <h2>Project Q3 Marketing Strategy</h2>
+                <h2>{cardData.title}</h2>
             </div>
             <div className="para">
                 <p>Key Objectives:</p><br />
                 <ol>
-                    <li>
-                        Launch new social media campaign by sept 1.
-                    </li>
-                    <li>Analyze Q2 competitor performance.</li>
-                    <li>Finalize influencer contracts.....</li>
+                    {cardData.objectives.map((obj, index) => (
+                        <li key={index}>{obj}</li>
+                    ))}
                 </ol>
             </div>
-            <div className="tags"><p>Tags:  #marketing, #strategy</p></div>
+            <div className="tags">
+                <p>Tags: {cardData.tags.map((tag, index) => (
+                    <span key={index} style={{ marginRight: '5px' }}>{tag}</span>
+                ))}</p>
+            </div>
             <hr />
             <div className="bottom">
                 <div className="bottom-left">
@@ -35,8 +38,7 @@ const Card = () => {
                     <button><RiDeleteBin6Line /></button>
                 </div>
                 <div className="bottom-right">
-                    <p>Created at : 15 Aug 2026 | 11:30 AM</p>
-                    
+                    <p>Created at : {cardData.createdAt}</p>
                 </div>
             </div>
         </div>
