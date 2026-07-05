@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Card from './components/Card'
 import PerspectiveCarousel from './components/PerspectiveCarousel'
+import Navbar from './components/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -75,6 +76,7 @@ function App() {
       {/* {initialCards.map((card) => (
         <Card key={card.id} cardData={card} />
       ))} */}
+      <Navbar/>
       <PerspectiveCarousel cardDataList={initialCards}/>
 
     </div>
