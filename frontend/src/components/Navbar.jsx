@@ -3,7 +3,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import './navabar.css';
 import { IoMdAdd } from "react-icons/io";
-
+import './chatbot.css'
 const Navbar = () => {
     return (
         <div className="main-nav">

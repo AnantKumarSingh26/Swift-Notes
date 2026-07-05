@@ -1,0 +1,35 @@
+.chatbot-icon {
+  /* Screen par position fix karne ke liye */
+  position: fixed;
+  bottom: 30px; /* Neeche se 30px upar */
+  right: 30px;  /* Right side se 30px andar */
+  
+  /* Dusre elements ke upar dikhane ke liye z-index zaroori hai */
+  z-index: 1000; 
+  
+  /* Icon ki shape aur size */
+  width: 60px;
+  height: 60px;
+  background-color: #007bff; /* Chatbot ka main color */
+  color: white;
+  border-radius: 50%; /* Pura gol (circle) banane ke liye */
+  
+  /* Icon ko center mein laane ke liye Flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  
+  /* Thoda 3D look aur shadow ke liye */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  
+  /* Hover effect smooth karne ke liye */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover par icon thoda bada hoga */
+.chatbot-icon:hover {
+  transform: scale(1.1);
+  background-color: #0056b3; 
+}
